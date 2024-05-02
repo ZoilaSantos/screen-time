@@ -299,15 +299,16 @@ CREATE PROCEDURE zoila.weekday_as_money @weekday varchar(10)
 AS
 DECLARE	@weekday_int int;
 
-SELECT @weekday_int = CASE @weekday
-						WHEN 'Sunday'		THEN 1 
-						WHEN 'Monday'		THEN 2
-						WHEN 'Tuesday'		THEN 3
-						WHEN 'Wednesday'	THEN 4
-						WHEN 'Thursday'		THEN 5
-						WHEN 'Friday'		THEN 6
-						ELSE 7 
-					END;
+SELECT @weekday_int = 
+		CASE @weekday
+			WHEN 'Sunday'		THEN 1 
+			WHEN 'Monday'		THEN 2
+			WHEN 'Tuesday'		THEN 3
+			WHEN 'Wednesday'	THEN 4
+			WHEN 'Thursday'		THEN 5
+			WHEN 'Friday'		THEN 6
+			ELSE 7 
+		END;
 
 SELECT [Category], ISNULL([iPad],0) [iPad], ISNULL([iPhone],0) [iPhone]
 FROM (
